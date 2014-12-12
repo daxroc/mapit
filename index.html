@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang='en'>
+  
+  <head>
+    
+    <title>MapIt</title>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" >
+    <link rel="stylesheet" type="text/css" href="css/override.css" >
+    <link rel="stylesheet" type="text/css" href="css/leaflet.css" >
+
+  </head>
+
+  <body>
+  
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/leaflet.js"></script>
+
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-md-12 column">
+          <div class="row clearfix">
+            <div class="col-md-8 column">
+              <div>
+                <ul class="nav nav-tabs">
+                  <li class="active">
+                    <a href="#">Settings</a>
+                  </li>
+                  <li>
+                    <a href="#">Favoutites</a>
+                  </li>
+                  <li class="disabled">
+                    <a href="#">Messages</a>
+                  </li>
+                  <li class="dropdown pull-right">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Marker Options<strong class="caret"></strong></a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="#" class='btnShareLocation'>Show Location</a>
+                      </li>
+                      <li>
+                        <a href="#" class='btnShareLocation'>Center Location</a>
+                      </li>
+                      <li>
+                        <a href="#"></a>
+                      </li>
+                      <li class="divider">
+                      </li>
+                      <li>
+                        <a href="#">Separated link</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div id='map'></div>
+              </div>
+              <div class="col-md-4 column">
+                <div id='console' class='col-md-6 column'>
+                  <label>Latitude</label>
+                  <input id='lat' value="0.0">
+                  <label>Longitude</label>
+                  <input id='lng' value="0.0">
+
+                  <label>Debug console</label>
+                  <textarea id='console'></textarea>
+                  <p>
+                    <a class="btn btn-primary btn-large" href="#" id='btnAddFavourite'>Add Favourite</a>
+                  </p> 
+                  <table id="tblFavourites">
+                    
+                    <thead>
+                      <tr>
+                        <th>Lat</th>
+                        <th>Lng</th>
+                        <th>Location</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>demo</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  
+                </div>
+              </div>
+            </div>
+          <div class="row clearfix">
+            <div class="col-md-12 column">
+              <div class="jumbotron">
+                <h1>
+                  MapIt
+                </h1>
+                <p>
+                  MapIt is a tiny web application that shows various pre-defined locations ( latitude and longitudes ) on an Open Street Map while allowing users to specify and record custom locations in real time as favourite locations. This is acomplished with local storage, so that these favourites can be retrievied and displayed on return visits. 
+                </p>
+                <p>
+                  This application makes extensive use of Leaflet >insert link< map api in conjunction with OpenStreet map tiles, and uses jQuery for UI components and interaction with the DOM. The layout is controlled by Bootstrap.
+                </p>
+                <p>
+                  <a class="btn btn-primary btn-large btnShowApp" href="#">Let's see the app</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Load Javascript last -->
+  <script src="js/mapit/mapit-map.js"></script>
+  <script src="js/mapit/mapit-storage.js"></script>
+  <script src="js/mapit/mapit-ui.js"></script>
+</html>
