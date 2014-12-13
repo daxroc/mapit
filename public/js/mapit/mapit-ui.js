@@ -45,7 +45,9 @@ $(function(){
   // Remove Fav
   $(document).on("click", ".btnRemoveFavourite", function(e){
     row_index = tblFav.row( $(this).closest('tr') ).index();
-    console.log(markers[row_index]);
+    if (markers[row_index] != 'undefined'){
+      markers[row_index].setLatLng([-400,-400]);
+    }
     tblFav.row( $(this).closest('tr') )
         .remove()
         .draw();
@@ -62,6 +64,8 @@ $(function(){
     
     if ( typeof(markers[row_index]) == 'undefined') {
       markers[row_index] = L.marker(p).addTo(map);
+    } else {
+      markers[row_index].setLatLng(p);
     }
     map.panTo(p);
 
