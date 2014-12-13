@@ -60,7 +60,7 @@ $(function(){
     d = tblFav.row(row_index).data();
     p = [d[0],d[1]];
     
-    if ( typeof(marker[row_index]) == 'undefined') {
+    if ( typeof(markers[row_index]) == 'undefined') {
       markers[row_index] = L.marker(p).addTo(map);
     }
     map.panTo(p);
