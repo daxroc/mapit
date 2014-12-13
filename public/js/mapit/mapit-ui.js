@@ -71,6 +71,14 @@ $(function(){
 
   });
 
+  $(document).on("click", ".btnHideMarker", function (e){
+    // Get the index in the table *unique id
+    row_index = tblFav.row( $(this).closest('tr') ).index();
+    if (markers[row_index] != 'undefined'){
+      markers[row_index].setLatLng([-400,-400]);
+    }
+  });
+
 
   $(document).on("click", ".btnShareLocation", function(e){
     geoLocation = getLocation();
