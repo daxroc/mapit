@@ -5,26 +5,45 @@
     
     <title>MapIt</title>
 
+    <!-- Bootstrap CSS --> 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" >
+    
+    <!-- Customisations -->
     <link rel="stylesheet" type="text/css" href="css/override.css" >
+
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" type="text/css" href="css/leaflet.css" >
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
 
   </head>
 
   <body>
   
+    <!-- jQuery -->
     <script src="js/jquery-2.1.1.min.js"></script>
+
+    <!-- Bootstrap -->
     <script src="js/bootstrap.js"></script>
+
+    <!-- Leaflet -->
     <script src="js/leaflet.js"></script>
+
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="js/jquery.dataTables.min.js"></script>
+    
 
     <div class="container">
       <div class="row clearfix">
         <div class="col-md-12 column">
           <div class="row clearfix">
-            <div class="col-md-8 column">
+            <div class="col-md-12 column">
               <div>
+                <p class="navbar-text logo">MapIT</p>
                 <ul class="nav nav-tabs">
+                  
                   <li class="active">
                     <a href="#">Settings</a>
                   </li>
@@ -55,19 +74,32 @@
                   </li>
                 </ul>
               </div>
+            </div>
+            <div class="col-md-8 column">
               <div id='map'></div>
               </div>
               <div class="col-md-4 column">
-                <div id='console' class='col-md-6 column'>
-                  <label>Latitude</label>
-                  <input id='lat' value="0.0">
-                  <label>Longitude</label>
-                  <input id='lng' value="0.0">
-
-                  <label>Debug console</label>
-                  <textarea id='console'></textarea>
+                <div class="page-header">
+                  <h3>Favourte</h3>
+                </div>
+                <div id='console' class='col-md-12 column chords'>
+                  <div class="row clearfix">
+                    <div class="col-md-12 column">
+                      <div class="input-group input-group-lg">
+                        <span class="input-group-addon">Latitude&nbsp;&nbsp;&nbsp;</span>
+                        <input type="text" id='lat' class="form-control" placeholder="Lat">
+                      </div>
+                    </div>
+                    <div class="col-md-12 column">
+                      <div class="input-group input-group-lg">
+                        <span class="input-group-addon">Longitude</span>
+                        <input type="text" id='lng' class="form-control" placeholder="Lng">
+                      </div>
+                    </div>
+                  </div>
+                  
                   <p>
-                    <a class="btn btn-primary btn-large" href="#" id='btnAddFavourite'>Add Favourite</a>
+                    <a class="btn btn-primary btn-large glyphicon glyphicon-plus" href="#" id='btnAddFavourite'>&nbsp;</a>
                   </p> 
                   <table id="tblFavourites">
                     
@@ -79,11 +111,6 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>demo</td>
-                    </tr>
                     </tbody>
                   </table>
                   
@@ -113,7 +140,15 @@
     </div>
   </body>
   <!-- Load Javascript last -->
+
+  <!-- Load Javascript last -->  
   <script src="js/mapit/mapit-map.js"></script>
+
+  <!-- Load Javascript last -->
   <script src="js/mapit/mapit-storage.js"></script>
+
+  <!-- Load Javascript last -->
   <script src="js/mapit/mapit-ui.js"></script>
+
+
 </html>

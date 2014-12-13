@@ -7,6 +7,8 @@
  * All rights reserved.
  */
 
+  var chordDecimalPlaces = 5;
+
   var location_NCIRL = [53.34873888, -6.24263226]
   var map = L.map('map').setView(location_NCIRL, 13);
   var marker = L.marker(location_NCIRL).addTo(map);
@@ -23,8 +25,9 @@
 
   function showPosition(position) {
     console.log("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
-    loc = [ position.coords.latitude, position.coords.longitude ]
+    loc = [ position.coords.latitude.toFixed(chordDecimalPlaces), position.coords.longitude.toFixed(chordDecimalPlaces) ]
     var currentLocationMarker = L.marker(loc).addTo(map);
+    map.panTo(loc);
   }
 
  $(function(){
