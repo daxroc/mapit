@@ -3,5 +3,8 @@
 
 #map { width: 100%; height: 640px; margin-bottom: 0px;}
 
-
 .logo { font-weight: bolder;}
+
+.container { border: solid 1px red;}
+
+#tblFavourites tr:odd { background-color: #D9F0FF;}

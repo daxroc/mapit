@@ -10,12 +10,18 @@
 
 
 var tblFav;
+var markers = [];
 $(function(){
 
   // Favourites Table
   tblOptions = { 
-    searching: false,
-    "pagingType": "simple"
+    "searching": false,
+    "scrollY":        "200px",
+    "scrollCollapse": true,
+    "paging":         false,
+    "columnDefs": [
+      { "width": "20%", "targets": 0 }
+    ]
   }
   tblFav = $('#tblFavourites').DataTable(tblOptions);
 
@@ -24,27 +30,50 @@ $(function(){
 
   var favOptions = "<div class='btn-toolbar' role='toolbar' aria-label='options'>"
       favOptions += "<div class='btn-group glyphicon glyphicon-minus btnRemoveFavourite' href='#''></div>"
-      favOptions += "<div class='btn-group glyphicon glyphicon-map-marker btnToggleFavourite' href='#''></div>"
+      favOptions += "<div class='btn-group glyphicon glyphicon-map-marker btnAddMarker' href='#''></div>"
+      favOptions += "<div class='btn-group glyphicon glyphicon-eye-close btnHideMarker' href='#''></div>"
       favOptions += "</div>"
   
-  // Toggle Console visibility
+  // Add Fav
   $(document).on("click", "#btnAddFavourite", function(e){
     var lat = $("#lat").val();
     var lng = $("#lng").val();
-    //$("#tblFavourites tbody").append("<tr><td>"+lat+"</td><td>"+lng+"</td><td>"+favOptions+"</td></tr>");
     tblFav.row.add([lat, lng, favOptions]).draw();
   });
 
+
+  // Remove Fav
   $(document).on("click", ".btnRemoveFavourite", function(e){
-    //$(this).closest ('tr').remove();
-    tblFav.row( $(this).parents('tr') )
+    row_index = tblFav.row( $(this).closest('tr') ).index();
+    console.log(markers[row_index]);
+    tblFav.row( $(this).closest('tr') )
         .remove()
         .draw();
   });
 
+  // Add marker for Fav
+  $(document).on("click", ".btnAddMarker", function (e) {
+
+    // Get the index in the table *unique id
+    row_index = tblFav.row( $(this).closest('tr') ).index();
+
+    d = tblFav.row(row_index).data();
+    p = [d[0],d[1]];
+    
+    if ( typeof(marker[row_index]) == 'undefined') {
+      markers[row_index] = L.marker(p).addTo(map);
+    }
+    map.panTo(p);
+
+  });
+
 
   $(document).on("click", ".btnShareLocation", function(e){
-    getLocation();
+    geoLocation = getLocation();
+  });
+  
+  $(document).on("click", ".btnCenterLocation", function(e){
+    map.panTo(geoLocation);
   });
 
 

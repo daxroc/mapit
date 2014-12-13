@@ -13,6 +13,8 @@
   var map = L.map('map').setView(location_NCIRL, 13);
   var marker = L.marker(location_NCIRL).addTo(map);
   
+  // Store Location
+  var geoLocation = null;
 
   // Use browser geoLocation to get current location
   function getLocation() {
@@ -25,18 +27,19 @@
 
   function showPosition(position) {
     console.log("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
-    loc = [ position.coords.latitude.toFixed(chordDecimalPlaces), position.coords.longitude.toFixed(chordDecimalPlaces) ]
-    var currentLocationMarker = L.marker(loc).addTo(map);
-    map.panTo(loc);
+    geoLocation = [ position.coords.latitude.toFixed(chordDecimalPlaces), position.coords.longitude.toFixed(chordDecimalPlaces) ]
+    var currentLocationMarker = L.marker(geoLocation).addTo(map);
+    map.panTo(geoLocation);
   }
+
 
  $(function(){
 
 
     // Capture LatLng onClick event
     map.on('click', function(e) {
-      var lat = e.latlng.lat;
-      var lng = e.latlng.lng;
+      var lat = e.latlng.lat.toFixed(chordDecimalPlaces);
+      var lng = e.latlng.lng.toFixed(chordDecimalPlaces);
       $("#lat").val(lat);
       $("#lng").val(lng);
     });
