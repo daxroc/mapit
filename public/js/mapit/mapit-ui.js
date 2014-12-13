@@ -15,7 +15,7 @@ $(function(){
   // Favourites Table
   tblOptions = { 
     searching: false,
-    pagingType: "scrolling"
+    "pagingType": "simple"
   }
   tblFav = $('#tblFavourites').DataTable(tblOptions);
 
