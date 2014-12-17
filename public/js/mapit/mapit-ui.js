@@ -10,6 +10,7 @@
  
 
 var tblFav;
+var favOptions;
 var markers = [];
 $(function(){
 
@@ -23,12 +24,13 @@ $(function(){
       { "width": "20%", "targets": 0 }
     ]
   }
+  
   tblFav = $('#tblFavourites').DataTable(tblOptions);
 
   $(document).on("click", ".btnShowApp", function() { $(this).fadeOut("slow"); } );
 
 
-  var favOptions = "<div class='btn-toolbar' role='toolbar' aria-label='options'>"
+    favOptions = "<div class='btn-toolbar' role='toolbar' aria-label='options'>"
       favOptions += "<div class='btn-group glyphicon glyphicon-minus btnRemoveFavourite' href='#''></div>"
       favOptions += "<div class='btn-group glyphicon glyphicon-map-marker btnAddMarker' href='#''></div>"
       favOptions += "<div class='btn-group glyphicon glyphicon-eye-close btnHideMarker' href='#''></div>"
@@ -45,7 +47,7 @@ $(function(){
   // Remove Fav
   $(document).on("click", ".btnRemoveFavourite", function(e){
     row_index = tblFav.row( $(this).closest('tr') ).index();
-    if (markers[row_index] != 'undefined'){
+    if ( markers[row_index] != 'undefined'){
       markers[row_index].setLatLng([-400,-400]);
     }
     tblFav.row( $(this).closest('tr') )
@@ -88,6 +90,10 @@ $(function(){
     map.panTo(geoLocation);
   });
 
+
+  $(document).on("click", "#btnAbout", function (e){
+    alert("MapIT created by Damien Roche Copyright (C) 2014 All rights reserved.");
+  });
 
 
 });

@@ -45,13 +45,10 @@
                 <ul class="nav nav-tabs">
                   
                   <li class="active">
-                    <a href="#">Settings</a>
-                  </li>
-                  <li>
                     <a href="#">Favorites</a>
                   </li>
-                  <li class="disabled">
-                    <a href="#">Messages</a>
+                  <li class="">
+                    <a href="#">Places of interest</a>
                   </li>
                   <li class="dropdown pull-right">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Location Options<strong class="caret"></strong></a>
@@ -68,7 +65,7 @@
                       <li class="divider">
                       </li>
                       <li>
-                        <a href="#">Separated link</a>
+                        <a href="#" id="btnAbout">About</a>
                       </li>
                     </ul>
                   </li>
@@ -99,15 +96,17 @@
                     </div>
                     <div class="col-md-12 column">&nbsp;</div>
                     <div class="col-md-12 column">
-                      <div class="col-md-2 column">&nbsp;</div>
-                      <div class="col-md-2 column">&nbsp;</div>
-                      <div class="col-md-2 column">&nbsp;</div>
-                      <div class="col-md-2 column">&nbsp;</div>
-                      <div class="col-md-2 column">&nbsp;</div>
-                      <div class="col-md-2 column">
-                        <div class="btn-group btn-group-lg" role="group" aria-label="new">
-                          <div class="btn-group-lg glyphicon glyphicon-plus" id='btnAddFavourite' role="group" aria-label="AddNewMarker">&nbsp;</div>
-                        </div>
+                      <div class="btn-group btn-group-lg" role="group" aria-label="new">
+                        <button id="btnAddFavourite" class="btn btn-default btn-lg" type="button" aria-expanded="false">
+                          <span class="glyphicon glyphicon-plus"></span><div>Add</div>
+                        </button>
+                        <button id="btnSave" class="btn btn-default btn-lg" type="button" aria-expanded="false">
+                          <span class="glyphicon glyphicon-save"></span><div>Save</div>
+                        </button>
+                       <!-- 
+                       <div class="btn-group-lg glyphicon glyphicon-plus" id='btnAddFavourite' role="group" aria-label="AddNewMarker">&nbsp;</div>
+                        <div class="btn-group-lg glyphicon glyphicon-save" id='btnSave' role="group" aria-label="">&nbsp;</div>
+                      -->
                       </div>
                     </div>
                   </div>
@@ -141,7 +140,7 @@
                   The storage element of this application is achieved using local-storage. This allows a returning user to maintain their favorites.
                 </p>
                 <p>
-                  This application makes extensive use of Leaflet >insert link< map api in conjunction with OpenStreet map tiles. 
+                  This application makes extensive use of Leaflet map api in conjunction with OpenStreet map tiles. 
                   It also uses jQuery for UI components and event based interaction with the DOM. 
                   The layout is controlled by Bootstrap, which provides a great cross browser framework for a good responsive UX.
                 </p>
@@ -157,14 +156,12 @@
   </body>
   <!-- Load Javascript last -->
 
+  <!-- Load Store last -->
+  <script src="js/store.min.js"></script>
+
   <!-- Load Javascript last -->  
   <script src="js/mapit/mapit-map.js"></script>
-
-  <!-- Load Javascript last -->
-  <script src="js/mapit/mapit-storage.js"></script>
-
-  <!-- Load Javascript last -->
   <script src="js/mapit/mapit-ui.js"></script>
-
+  <script src="js/mapit/mapit-storage.js"></script>
 
 </html>

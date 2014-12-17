@@ -8,10 +8,8 @@
  */
 
   var chordDecimalPlaces = 5;
-
   var location_NCIRL = [53.34873888, -6.24263226]
   var map = L.map('map').setView(location_NCIRL, 13);
-  var marker = L.marker(location_NCIRL).addTo(map);
   
   // Store Location
   var geoLocation = null;
@@ -34,7 +32,6 @@
 
 
  $(function(){
-
 
     // Capture LatLng onClick event
     map.on('click', function(e) {
